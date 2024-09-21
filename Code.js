@@ -1,8 +1,8 @@
 const propetiesService = PropertiesService
 const scriptProperties = propetiesService.getScriptProperties()
 const WebhookURL = scriptProperties.getProperty('URL')
-const TOKEN = scriptProperties.getProperty('TOKEN')
-const YEAR = scriptProperties.getProperty('YEAR')
+const Token = scriptProperties.getProperty('Token')
+const Year = scriptProperties.getProperty('Year')
 const ChannelName = scriptProperties.getProperty('ChannelName')
 
 // 担当者をリマインドする関数
@@ -24,7 +24,7 @@ function notifyReminderInfo() {
 
 // スプシから担当者のIDを取得
 function getMemberId(index) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(YEAR); // シート名を指定
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(Year); // シート名を指定
   var lastRow = sheet.getLastRow();
   var range = sheet.getRange('A2:C' + lastRow); // データがある範囲を取得
   var values = range.getValues(); // データを取得
@@ -37,7 +37,7 @@ function getMemberId(index) {
 
 // スプシから担当者の完了フラグを取得
 function getReminderFlag(index) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(YEAR); // シート名を指定
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(Year); // シート名を指定
   var lastRow = sheet.getLastRow();
   var range = sheet.getRange('A2:C' + lastRow); // データがある範囲を取得
   var values = range.getValues(); // データを取得
@@ -113,7 +113,7 @@ function reminderMember() {
 
 // その週の掃除担当者のスプシの行インデックスを取得
 function getMemberIndex() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(YEAR); // 表が記載されているsheetの名前
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(Year); // 表が記載されているsheetの名前
   var today = new Date();
   var lastRow = sheet.getLastRow();
   var members = sheet.getRange('A2:C' + lastRow).getValues();
@@ -221,7 +221,7 @@ function doGet(e) {
 }
 
 function updateSheet(userId) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(YEAR); // シート名を指定
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(Year); // シート名を指定
 
   var rowIndex = getMemberIndex(); // 該当する行のインデックスを取得
   if (rowIndex === -1) {
