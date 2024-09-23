@@ -1,6 +1,6 @@
 const propetiesService = PropertiesService
 const scriptProperties = propetiesService.getScriptProperties()
-const WebhookURL = scriptProperties.getProperty('URL')
+const WebhookURL = scriptProperties.getProperty('WebhookURL')
 const Token = scriptProperties.getProperty('Token')
 const Year = scriptProperties.getProperty('Year')
 const ChannelName = scriptProperties.getProperty('ChannelName')
