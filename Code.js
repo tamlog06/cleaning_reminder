@@ -206,10 +206,10 @@ function doPost(e) {
       '完了報告ありがとうございます！\n' +
       'お疲れ様でした！';
 
-    setForSlack(messageBody, ChannelName); // 通知チャンネル
+    // なぜかdoPostの時はException: Attribute provided with no value: urlが出る
+    /* setForSlack(messageBody, ChannelName); // 通知チャンネル */
 
-    // debug用
-    // postMessageToSlack(Token, message, params.event.channel, params.event.ts);
+    postMessageToSlack(Token, messageBody, params.event.channel, params.event.ts);
   }
   
   // 何かしら応答する必要がある
